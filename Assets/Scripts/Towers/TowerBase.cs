@@ -13,6 +13,18 @@ namespace Towers
         protected void Update()
         {
             Attack();
+            
+            if (!GameManager.Instance.IsPlaying && Input.GetKeyDown(KeyCode.E))
+            {
+                Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 커서의 스크린 좌표를 월드 좌표로 변환
+                RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero); // 해당 월드 좌표에서 2D 레이캐스트를 실행
+                if (hit.collider is not null && hit.collider.gameObject == this.gameObject) // 레이캐스트가 어떤 콜라이더를 감지했고, 그 콜라이더가 이 게임 오브젝트의 콜라이더와 같다면
+                {
+                    GameManager.Instance.Credit += Cost;
+                    GameManager.Instance.Stage.towers.Remove(this);
+                    Destroy(gameObject);
+                }
+            }
         }
 
         public abstract void Attack();

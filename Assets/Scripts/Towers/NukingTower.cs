@@ -54,6 +54,8 @@ namespace Towers
             Vector2 direction = (targetPos - startPos).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             
+            transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
+            
             _laser.transform.position = (startPos + targetPos) / 2;
             _laser.transform.position += new Vector3(0, 0, -2);
             _laser.transform.localScale = new Vector2(distance, 0.3f);

@@ -27,8 +27,17 @@ namespace Towers
     
         private void ShootProjectile()
         {
+            Vector2 targetPos = GameManager.Instance.Monster.transform.position;
+            Vector2 startPos = transform.position;
+            
+            Vector2 direction = (targetPos - startPos).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            
+            transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
+            
             Projectile p = Instantiate(projectile, transform);
-            p.direction = (GameManager.Instance.Monster.transform.position - transform.position).normalized;
+            p.direction = direction;
+            p.damage = Damage;
         }
     
         private IEnumerator StartAttackCoolTime()

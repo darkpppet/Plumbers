@@ -32,6 +32,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private Button _resetButton;
+    private Button _startButton;
+
+    public bool IsPlaying { get; private set; }
+
+    private Transform _winUI;
+    private Transform _loseUI;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -61,6 +69,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnGamePlaySceneLoaded;
         Instance._creditText = GameObject.Find("CreditText").GetComponent<TextMeshProUGUI>();
+        Instance._resetButton = GameObject.Find("ResetButton").GetComponent<Button>();
+        Instance._startButton = GameObject.Find("StartButton").GetComponent<Button>();
+        Instance._winUI = GameObject.Find("WinCanvas").transform;
+        Instance._loseUI = GameObject.Find("LoseCanvas").transform;
+        
+        Instance._winUI.gameObject.SetActive(false);
+        Instance._loseUI.gameObject.SetActive(false);
         
         switch (Instance._stageNum)
         {
@@ -74,8 +89,11 @@ public class GameManager : MonoBehaviour
 
     public void StartStage()
     {
-        if (Instance.Stage.FindPath())
+        if (Instance.Credit >= 0 && Instance.Stage.FindPath())
         {
+            Instance._resetButton.enabled = false;
+            Instance._startButton.enabled = false;
+            Instance.IsPlaying = true;
             Instance.Monster.Activate();
         }
     }
@@ -84,4 +102,20 @@ public class GameManager : MonoBehaviour
     {
         Instance.Stage.ResetStage();
     }
+
+    public void WinStage()
+    {
+        Instance._winUI.gameObject.SetActive(true);
+    }
+
+    public void LoseStage()
+    {
+        Instance._loseUI.gameObject.SetActive(true);
+    }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+    
 }

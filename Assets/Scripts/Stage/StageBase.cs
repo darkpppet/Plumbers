@@ -38,11 +38,11 @@ namespace Stage
             foreach (TileBase tile in Map)
             {
                 tile.Restore();
-                tile.transform.rotation = Quaternion.identity;
             }
 
             foreach (TowerBase tower in towers)
             {
+                GameManager.Instance.Credit += tower.Cost;
                 Destroy(tower.gameObject);
             }
             towers.Clear();

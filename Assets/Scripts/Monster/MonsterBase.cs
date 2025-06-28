@@ -72,9 +72,16 @@ namespace Monster
             Speed /= 1 - ratio;
         }
 
+        private void SetGoal()
+        {
+            gameObject.SetActive(false);
+            GameManager.Instance.LoseStage();
+        }
+        
         private void SetDie()
         {
             gameObject.SetActive(false);
+            GameManager.Instance.WinStage();
         }
 
         private void Move(float deltaTime)
@@ -100,7 +107,7 @@ namespace Monster
                 }
                 else
                 {
-                    gameObject.SetActive(false);
+                    SetGoal();
                 }
             }
         }
