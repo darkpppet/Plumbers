@@ -10,6 +10,6 @@ namespace Tiles
         public override bool Top { get; protected set; } = true;
         public override bool Bottom { get; protected set; } = false;
 
-        public override int Cost { get; protected set; } = 30;
+        public override int Cost { get; protected set; } = 20;
     }
 }

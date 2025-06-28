@@ -11,7 +11,7 @@ namespace Towers
 
         private GameObject _slowAreas;
 
-        private const float SlowRatio = 0.1f;
+        private const float SlowRatio = 0.3f;
         private bool _isAddingSlow = false;
 
         private void Awake()

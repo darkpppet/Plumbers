@@ -328,7 +328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1685826357623382217, guid: 342954d94e2c73a49b3843aee9dd1d96, type: 3}
   towerName: Normal Tower
-  cost: 50
 --- !u!61 &6006049007212847136
 BoxCollider2D:
   m_ObjectHideFlags: 0

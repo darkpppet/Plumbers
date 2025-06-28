@@ -83,5 +83,6 @@ public class GameManager : MonoBehaviour
     public void ResetStage()
     {
         Instance.Stage.ResetStage();
+        Instance.Monster.gameObject.SetActive(false);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Tiles;
 using Towers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Stage
@@ -43,7 +44,8 @@ namespace Stage
 
             foreach (TowerBase tower in towers)
             {
-                Destroy(tower.gameObject);
+                tower.Remove();
+                //Destroy(tower.gameObject);
             }
             towers.Clear();
         }
