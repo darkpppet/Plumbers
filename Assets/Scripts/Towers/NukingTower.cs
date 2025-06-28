@@ -15,6 +15,7 @@ namespace Towers
         private bool _isCharging = false;
 
         private GameObject _laser;
+        private readonly float[] _laserThick = { 0.2f, 0.3f, 0.4f};
         
         private void Awake()
         {
@@ -58,7 +59,7 @@ namespace Towers
             
             _laser.transform.position = (startPos + targetPos) / 2;
             _laser.transform.position += new Vector3(0, 0, -2);
-            _laser.transform.localScale = new Vector2(distance, 0.3f);
+            _laser.transform.localScale = new Vector2(distance, _laserThick[_damagesIndex]);
             _laser.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
         
