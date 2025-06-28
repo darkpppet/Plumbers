@@ -62,6 +62,16 @@ namespace Monster
             }
         }
 
+        public void AddSlow(float ratio)
+        {
+            Speed *= 1 - ratio;
+        }
+
+        public void RecoverySlow(float ratio)
+        {
+            Speed /= 1 - ratio;
+        }
+
         private void SetDie()
         {
             gameObject.SetActive(false);

@@ -213,7 +213,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -406,7 +406,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -430,7 +430,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 2007250152123493547, guid: 6ad89bb9e87cf97449edce7bbc8712b7, type: 3}
   towerName: Slow Tower
-  cost: 75
 --- !u!61 &-2480515612966944901
 BoxCollider2D:
   m_ObjectHideFlags: 0
