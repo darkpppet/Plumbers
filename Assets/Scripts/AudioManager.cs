@@ -24,14 +24,18 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = GetComponents<AudioSource>();
     }
-
-    public void PlayBGM(int n)
+    public void PlayBGM(int n, float scale = 1.0f)
     {
         audioSource[0].Stop();
-        audioSource[0].PlayOneShot(BGM[n]);
+        audioSource[0].PlayOneShot(BGM[n], scale);
     }
-    public void PlaySFX(int n)
+    public void PlaySFX(int n, float scale = 1.0f)
     {
-        audioSource[1].PlayOneShot(SFX[n]);
+        audioSource[1].PlayOneShot(SFX[n], scale);
+    }
+
+    public void StopAllSFX()
+    {
+        audioSource[1].Stop();
     }
 }

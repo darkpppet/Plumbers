@@ -21,7 +21,7 @@ namespace Towers
             {
                 ShootProjectile();
                 _canAttack = false;
-                AudioManager.Instance.PlaySFX(4);
+                AudioManager.Instance.PlaySFX(4, 0.2f);
                 StartCoroutine(StartAttackCoolTime());
             }
         }

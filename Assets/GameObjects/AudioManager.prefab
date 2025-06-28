@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1fedceb0163e1c349b6bbcad95ed64b2, type: 3}
   - {fileID: 8300000, guid: 038c01d19b038264c89892b3a30a368f, type: 3}
   - {fileID: 8300000, guid: 1b5513fc32a42ab4087bd4700b16a873, type: 3}
-  - {fileID: 8300000, guid: 2c2902804559f11419addf92042d528c, type: 3}
+  - {fileID: 8300000, guid: e70fcce56f2a68f44a39599dee5a6453, type: 3}
   SFX:
   - {fileID: 8300000, guid: 4707903d5e79ec44d91f4d5f20ff19aa, type: 3}
   - {fileID: 8300000, guid: 919d0b317ae0fa24fb268da0f72a55bf, type: 3}
@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 084cbb009fb2ea64c83f20cbb55f90cc, type: 3}
   - {fileID: 8300000, guid: b6ef3839fc7972840b5a456541a44e11, type: 3}
   - {fileID: 8300000, guid: 66d5909797b623347b339d027f1128e6, type: 3}
+  - {fileID: 8300000, guid: f2bf10060076098488d531b2b4f1ded6, type: 3}
 --- !u!82 &3228264042515581696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 1fedceb0163e1c349b6bbcad95ed64b2, type: 3}
   m_Resource: {fileID: 8300000, guid: 1fedceb0163e1c349b6bbcad95ed64b2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

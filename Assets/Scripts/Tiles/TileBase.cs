@@ -91,6 +91,7 @@ namespace Tiles
         {
             if (IsEnabled)
             {
+                AudioManager.Instance.PlaySFX(1, 0.2f);
                 IsEnabled = false;
                 _spriteRenderer.enabled = false;
                 GameManager.Instance.Credit += Cost;

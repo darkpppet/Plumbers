@@ -57,11 +57,13 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.Instance.PlaySFX(6,0.5f);
         SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OpenStage(int num)
     {
+        AudioManager.Instance.PlaySFX(6,0.5f);
         Instance._stageNum = num;
         SceneManager.sceneLoaded += OnGamePlaySceneLoaded;
         SceneManager.LoadScene("GamePlay");
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance.Credit >= 0 && Instance.Stage.FindPath())
         {
+            AudioManager.Instance.PlaySFX(6,0.5f);
             Instance._resetButton.enabled = false;
             Instance._startButton.enabled = false;
             Instance.IsPlaying = true;
@@ -100,23 +103,27 @@ public class GameManager : MonoBehaviour
 
     public void ResetStage()
     {
+        AudioManager.Instance.PlaySFX(6,0.5f);
         Instance.Stage.ResetStage();
     }
 
     public void WinStage()
     {
+        AudioManager.Instance.StopAllSFX();
         Instance._winUI.gameObject.SetActive(true);
         AudioManager.Instance.PlayBGM(2);
     }
 
     public void LoseStage()
     {
+        AudioManager.Instance.StopAllSFX();
         Instance._loseUI.gameObject.SetActive(true);
         AudioManager.Instance.PlayBGM(3);
     }
 
     public void BackToTitle()
     {
+        AudioManager.Instance.PlaySFX(6,0.5f);
         SceneManager.LoadScene("StartScene");
         AudioManager.Instance.PlayBGM(0);
     }

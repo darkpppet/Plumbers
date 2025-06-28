@@ -23,7 +23,7 @@ namespace Towers
                     GameManager.Instance.Credit += Cost;
                     GameManager.Instance.Stage.towers.Remove(this);
                     Destroy(gameObject);
-                    AudioManager.Instance.PlaySFX(1);
+                    AudioManager.Instance.PlaySFX(1, 0.5f);
                 }
             }
         }
