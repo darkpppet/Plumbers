@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 4c1ef6735051fa2429cb6d9b3123c737
+guid: a615745c774414545ae46abb53ac93bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7347265049222261331
-    second: end_0
-  - first:
-      213: 7437678082769292601
-    second: end_1
-  - first:
-      213: 3144736413378756445
-    second: end_2
-  - first:
-      213: -2245666115313151774
-    second: end_3
-  - first:
-      213: 7316747764871189335
-    second: end_4
+      213: -2346524565649730570
+    second: NoramlProjectile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 514
+  spritePixelsToUnits: 134
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,111 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end_0
+      name: NoramlProjectile_0
       rect:
         serializedVersion: 2
-        x: 103
-        y: 103
-        width: 514
-        height: 514
+        x: 68
+        y: 65
+        width: 134
+        height: 134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35a298182aab6f560800000000000000
-      internalID: 7347265049222261331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: end_1
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 519
-        width: 158
-        height: 98
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93d0c2d4fc0f73760800000000000000
-      internalID: 7437678082769292601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: end_2
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 477
-        width: 158
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5f3daf3b1954ab20800000000000000
-      internalID: 3144736413378756445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: end_3
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 472
-        width: 64
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e0d0a0f09ac5d0e0800000000000000
-      internalID: -2245666115313151774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: end_4
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 103
-        width: 495
-        height: 408
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 753d74c835f4a8560800000000000000
-      internalID: 7316747764871189335
+      spriteID: 6f358b707587f6fd0800000000000000
+      internalID: -2346524565649730570
       vertices: []
       indices: 
       edges: []
@@ -225,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 82163b6bf44260b48a62505cb87fed7c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      end_0: 7347265049222261331
-      end_1: 7437678082769292601
-      end_2: 3144736413378756445
-      end_3: -2245666115313151774
-      end_4: 7316747764871189335
+      NoramlProjectile_0: -2346524565649730570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

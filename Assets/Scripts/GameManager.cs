@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
         Instance._winUI.gameObject.SetActive(false);
         Instance._loseUI.gameObject.SetActive(false);
         
+        Instance.IsPlaying = false;
+        
         switch (Instance._stageNum)
         {
             case 1:

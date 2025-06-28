@@ -9,7 +9,7 @@ namespace Stage
         private const int RowSize = 5;
         private const int ColumnSize = 7;
 
-        private const float StartX = -ColumnSize / 2.0f;
+        private const float StartX = -ColumnSize / 2.0f - 1.0f;
         private const float StartY = RowSize / 2.0f - 0.5f;
         
         private readonly int[,] _mapIndex = new int[RowSize, ColumnSize] 
@@ -52,10 +52,10 @@ namespace Stage
                 }
             }
             
-            StartObject = Instantiate(startSprite, new Vector2(StartX - Length, StartY - StartRow), Quaternion.identity);
+            StartObject = Instantiate(startSprite, new Vector2(StartX - Length * 1.5f, StartY - StartRow), Quaternion.identity);
             StartObject.transform.SetParent(transform);
             
-            EndObject = Instantiate(endSprite, new Vector2(StartX + Length * ColumnSize, StartY - EndRow), Quaternion.identity);
+            EndObject = Instantiate(endSprite, new Vector2(StartX + Length * (ColumnSize + 0.5f), StartY - EndRow), Quaternion.identity);
             EndObject.transform.SetParent(transform);
         }
     }
