@@ -17,6 +17,8 @@ namespace Tiles
         
         public virtual int Cost { get; protected set; }
         
+        public virtual float TileDamage { get; protected set; }
+        
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

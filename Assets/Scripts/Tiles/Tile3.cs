@@ -11,5 +11,7 @@ namespace Tiles
         public override bool Bottom { get; protected set; } = true;
 
         public override int Cost { get; protected set; } = 20;
+        
+        public override float TileDamage { get; protected set; } = 2.0f;
     }
 }

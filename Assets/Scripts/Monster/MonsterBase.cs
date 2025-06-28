@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Tiles;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ namespace Monster
 {
     public abstract class MonsterBase : MonoBehaviour
     {
-        public (int X, int Y) Position { get; private set; }
+        public (int Row, int Column) Position { get; private set; }
 
         public virtual float MaxHp { get; protected set; }
 
@@ -18,11 +19,8 @@ namespace Monster
             get => _nowHp;
             protected set
             {
-                if (!Mathf.Approximately(_nowHp, value))
-                {
-                    _nowHp = value;
-                    _hpBar.fillAmount = HpPercentage;
-                }
+                _nowHp = value;
+                _hpBar.fillAmount = HpPercentage;
             }
         }
         
@@ -49,6 +47,11 @@ namespace Monster
             if (gameObject.activeInHierarchy)
             {
                 Move(Time.deltaTime);
+
+                if (Position.Column >= 0)
+                {
+                    DealDamage(GameManager.Instance.Stage.Map[Position.Row, Position.Column].TileDamage * Time.deltaTime);
+                }
             }
         }
 
