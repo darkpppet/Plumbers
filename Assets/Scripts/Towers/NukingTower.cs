@@ -5,31 +5,68 @@ namespace Towers
 {
     public class NukingTower : TowerBase
     {
-        public override int Cost { get; protected set; } = 10;
+        public override int Cost { get; protected set; } = 100;
         public override int Range { get; protected set; } = 1;
-        public override float Damage { get; protected set; } = 1.0f;
+        private readonly float[] _damages = { 1.0f, 2.0f, 3.0f };
+        private int _damagesIndex = 0;
+        public override float Damage => _damages[_damagesIndex];
+
+        private const float ChargeTime = 1.0f;
+        private bool _isCharging = false;
+
+        private GameObject _laser;
         
-        private bool _canAttack = true;
-        private const float AttackCoolTime = 1.0f;
-        
+        private void Awake()
+        {
+            _laser = transform.Find("LaserPart").gameObject;
+        }
+
         public override void Attack()
         {
-            if (_canAttack)
+            if (IsMonsterInRange())
             {
-                ShootProjectile();
-                _canAttack = false;
-                StartCoroutine(StartAttackCooltime());
+                if (!_isCharging)
+                {
+                    _isCharging = true;
+                    StartCoroutine(StartAttackCharge());
+                    _laser.SetActive(true);
+                }
+
+                SetLaserTransform();
+                
+                GameManager.Instance.Monster.DealDamage(Damage * Time.deltaTime);
+            }
+            else
+            {
+                _laser.SetActive(false);
+                StopAllCoroutines();
+                _isCharging = false;
+                _damagesIndex = 0;
             }
         }
-    
-        private void ShootProjectile()
+
+        private void SetLaserTransform()
         {
-        
+            Vector2 targetPos = GameManager.Instance.Monster.transform.position;
+            Vector2 startPos = transform.position;
+            
+            float distance = (targetPos - startPos).magnitude;
+            Vector2 direction = (targetPos - startPos).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            
+            _laser.transform.position = (startPos + targetPos) / 2;
+            _laser.transform.position += new Vector3(0, 0, -2);
+            _laser.transform.localScale = new Vector2(distance, 0.3f);
+            _laser.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
-    
-        private IEnumerator StartAttackCooltime()
+        
+        private IEnumerator StartAttackCharge()
         {
-            yield return new WaitForSeconds(AttackCoolTime);
+            while (true)
+            {
+                yield return new WaitForSeconds(ChargeTime);
+                _damagesIndex = _damagesIndex < _damages.Length - 1 ? _damagesIndex + 1 : _damages.Length - 1;
+            }
         }
     }
 }

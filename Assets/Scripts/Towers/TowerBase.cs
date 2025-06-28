@@ -8,26 +8,22 @@ namespace Towers
         public (int X, int Y) Position { get; set; }
         public virtual int Range { get; protected set; }
         public virtual float Damage { get; protected set; }
-    
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
         
-        }
-
         // Update is called once per frame
         protected void Update()
         {
-            if (IsMonsterInRange())
-            {
-                Attack();
-            }
+            Attack();
         }
 
         public abstract void Attack();
 
         protected bool IsMonsterInRange()
         {
+            if (!GameManager.Instance.Monster.gameObject.activeInHierarchy)
+            {
+                return false;
+            }
+            
             for (int i = -Range; i <= Range; i++)
             {
                 for (int j = -Range; j <= Range; j++)

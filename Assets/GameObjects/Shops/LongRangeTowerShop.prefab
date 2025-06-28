@@ -315,7 +315,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 0.5019608, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -406,7 +406,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5019608, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -430,7 +430,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: -6591962436547358469, guid: d4f39b9929d1afe4fb6f10877328bdc1, type: 3}
   towerName: Long Range Tower
-  cost: 75
 --- !u!61 &-3457385735348403133
 BoxCollider2D:
   m_ObjectHideFlags: 0

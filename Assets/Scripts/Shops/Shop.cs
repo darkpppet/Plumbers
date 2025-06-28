@@ -8,7 +8,6 @@ public class Shop : MonoBehaviour
 {
     public TowerBase tower;
     public string towerName;
-    public int cost;
     
     private TextMeshProUGUI _nameText;
     private Transform _wireFrame;
@@ -18,7 +17,7 @@ public class Shop : MonoBehaviour
     private void Awake()
     {
         _nameText = GetComponentsInChildren<TextMeshProUGUI>().First(x => x.name == "NameText");
-        _nameText.text = $"{towerName}\n${cost}";
+        _nameText.text = $"{towerName}\n${tower.Cost}";
         
         _wireFrame = transform.Find("WireFrame");
     }
@@ -38,9 +37,9 @@ public class Shop : MonoBehaviour
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 커서의 스크린 좌표를 월드 좌표로 변환
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero); // 해당 월드 좌표에서 2D 레이캐스트를 실행
 
-            if (!_isCatching && hit.collider is not null && hit.collider.gameObject == this.gameObject && GameManager.Instance.Credit >= cost)
+            if (!_isCatching && hit.collider is not null && hit.collider.gameObject == this.gameObject && GameManager.Instance.Credit >= tower.Cost)
             {
-                GameManager.Instance.Credit -= cost;
+                GameManager.Instance.Credit -= tower.Cost;
                 _isCatching = true;
                 _wireFrame.gameObject.SetActive(true);
             }
@@ -51,7 +50,9 @@ public class Shop : MonoBehaviour
                 {
                     if (!location.IsEnabled)
                     {
-                        GameManager.Instance.Stage.towers.Add(Instantiate(tower, location.transform.position, Quaternion.identity));
+                        TowerBase installed = Instantiate(tower, location.transform.position, Quaternion.identity);
+                        installed.Position = location.Position;
+                        GameManager.Instance.Stage.towers.Add(installed);
                         _isCatching = false;
                         _wireFrame.gameObject.SetActive(false);
                     }
@@ -61,7 +62,7 @@ public class Shop : MonoBehaviour
         }
         else if (_isCatching && Input.GetMouseButtonDown(1))
         {
-            GameManager.Instance.Credit += cost;
+            GameManager.Instance.Credit += tower.Cost;
             _isCatching = false;
             _wireFrame.gameObject.SetActive(false);
         }

@@ -73,7 +73,7 @@ namespace Monster
 
             if (Vector2.Distance(transform.position, _targetPosition) <= GameManager.Instance.Stage.Length / 2.0f)
             {
-                Position = _targetIndex + 1 < Path.Count ? Path[_targetIndex + 1] : (GameManager.Instance.Stage.EndRow, GameManager.Instance.Stage.MapSize.Column);
+                Position = _targetIndex < Path.Count ? Path[_targetIndex] : (GameManager.Instance.Stage.EndRow, GameManager.Instance.Stage.MapSize.Column);
             }
             if (Vector2.Distance(transform.position, _targetPosition) <= 0.002f)
             {

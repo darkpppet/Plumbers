@@ -48,6 +48,7 @@ namespace Stage
                     
                     Map[i, j].transform.position = new Vector2(x, y);
                     Map[i, j].transform.SetParent(transform);
+                    Map[i, j].Position = (i, j);
                 }
             }
             

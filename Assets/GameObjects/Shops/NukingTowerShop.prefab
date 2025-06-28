@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -270,7 +270,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4862051035269099089, guid: 23a4ce0fd9a4a2a4a939e1fc50d1610f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -294,7 +294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: -6334625302304193892, guid: 42b1a382abe0ae64681a258f2f4430ea, type: 3}
   towerName: Nuking Tower
-  cost: 100
 --- !u!61 &1662133335949063080
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnGamePlaySceneLoaded;
         Instance._creditText = GameObject.Find("CreditText").GetComponent<TextMeshProUGUI>();
         
-        switch (_stageNum)
+        switch (Instance._stageNum)
         {
             case 1:
                 Instance.Stage = Instantiate(stage1).GetComponent<StageBase>();

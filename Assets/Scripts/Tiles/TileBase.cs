@@ -6,6 +6,8 @@ namespace Tiles
     public abstract class TileBase : MonoBehaviour
     {
         private SpriteRenderer _spriteRenderer;
+        
+        public (int Row, int Column) Position { get; set; }
         public bool IsEnabled { get; private set; } = true;
         
         public virtual bool Left { get; protected set; }
