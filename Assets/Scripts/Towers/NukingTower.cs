@@ -13,6 +13,7 @@ namespace Towers
 
         private const float ChargeTime = 1.0f;
         private bool _isCharging = false;
+        private bool _SFXPlaying = false;
 
         private GameObject _laser;
         
@@ -33,8 +34,12 @@ namespace Towers
                 }
 
                 SetLaserTransform();
-                
+
                 GameManager.Instance.Monster.DealDamage(Damage * Time.deltaTime);
+                if (!_SFXPlaying)
+                {
+                    StartCoroutine(LaserSFX());
+                }
             }
             else
             {
@@ -61,7 +66,15 @@ namespace Towers
             _laser.transform.localScale = new Vector2(distance, 0.3f);
             _laser.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
-        
+
+        private IEnumerator LaserSFX()
+        {
+            _SFXPlaying = true;
+            AudioManager.Instance.PlaySFX(5);
+            yield return new WaitForSeconds(3);
+            _SFXPlaying = false;
+        }
+
         private IEnumerator StartAttackCharge()
         {
             while (true)

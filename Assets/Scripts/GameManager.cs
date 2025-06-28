@@ -1,6 +1,7 @@
 using Monster;
 using Stage;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    
     private int _stageNum;
     public StageBase Stage { get; private set; }
     public MonsterBase Monster { get; private set; }
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private Transform _winUI;
     private Transform _loseUI;
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
             Instance._startButton.enabled = false;
             Instance.IsPlaying = true;
             Instance.Monster.Activate();
+            AudioManager.Instance.PlayBGM(1);
         }
     }
 
@@ -106,16 +108,19 @@ public class GameManager : MonoBehaviour
     public void WinStage()
     {
         Instance._winUI.gameObject.SetActive(true);
+        AudioManager.Instance.PlayBGM(2);
     }
 
     public void LoseStage()
     {
         Instance._loseUI.gameObject.SetActive(true);
+        AudioManager.Instance.PlayBGM(3);
     }
 
     public void BackToTitle()
     {
         SceneManager.LoadScene("StartScene");
+        AudioManager.Instance.PlayBGM(0);
     }
     
 }

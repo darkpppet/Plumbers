@@ -33,7 +33,7 @@ public class Shop : MonoBehaviour
                 mousePos.z = -1;
                 _wireFrame.transform.position = mousePos;
             }
-            
+
             if (Input.GetMouseButtonDown(0))
             {
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 커서의 스크린 좌표를 월드 좌표로 변환
@@ -57,10 +57,11 @@ public class Shop : MonoBehaviour
                             GameManager.Instance.Stage.towers.Add(installed);
                             _isCatching = false;
                             _wireFrame.gameObject.SetActive(false);
+                            AudioManager.Instance.PlaySFX(0);
                         }
                     }
                 }
-            
+
             }
             else if (_isCatching && Input.GetMouseButtonDown(1))
             {
