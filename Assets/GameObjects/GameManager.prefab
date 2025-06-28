@@ -44,5 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246ddaaa635066d4ab24ec5898db0129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stages:
+  - {fileID: 2294482535744109849, guid: a2ca346d8fe74f740a0c12ede354a685, type: 3}
+  - {fileID: 2294482535744109849, guid: 245cfb68763097146aa5456315564fa1, type: 3}
+  - {fileID: 2294482535744109849, guid: e12371d2269299845bf39245bf6438df, type: 3}
+  - {fileID: 2294482535744109849, guid: 8743f28cf45280e448d798731460ce37, type: 3}
+  - {fileID: 2294482535744109849, guid: 0d4faf2164713b0489e2bb0ac25c21aa, type: 3}
+  monsters:
+  - {fileID: 6360026371452100128, guid: baa8baafd2a02a448b7b3073480c80ef, type: 3}
+  - {fileID: 6360026371452100128, guid: 8c135b56c5dcf0247b5556dbabcd4c69, type: 3}
+  - {fileID: 6360026371452100128, guid: 5c7e0aa81a15cda4f81fb8f43231efe2, type: 3}
+  - {fileID: 6360026371452100128, guid: 7c1cd867880126343917dc453f07341b, type: 3}
+  - {fileID: 6360026371452100128, guid: a9bea327f215b934192592ace87087ca, type: 3}
   stage1: {fileID: 2294482535744109849, guid: a2ca346d8fe74f740a0c12ede354a685, type: 3}
   monster1: {fileID: 6360026371452100128, guid: baa8baafd2a02a448b7b3073480c80ef, type: 3}

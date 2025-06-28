@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2294482535744109849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706510234131093376}
+  - component: {fileID: -2921037621191789415}
+  m_Layer: 0
+  m_Name: Stage4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1706510234131093376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294482535744109849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2921037621191789415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294482535744109849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6186e81433c4c448314d0f81261fae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers: []
+  startSprite: {fileID: 7054359527965020213, guid: 379e5d80e1e02fc4d9027c2dc4fc2bdf, type: 3}
+  endSprite: {fileID: 7054359527965020213, guid: c601300443577fb41bd396b9d178e818, type: 3}
+  tile1: {fileID: 320996902982528696, guid: cba08a7f072899a43823999318f3188a, type: 3}
+  tile2: {fileID: 4127621191136920108, guid: 11377bcdb43e28f458758cab76354112, type: 3}
+  tile3: {fileID: -6108162417216945217, guid: e86eab40620689449acf693b4ffd03e9, type: 3}
+  tile4: {fileID: 1474503482384849438, guid: f2fe6411970235e419cb87ebf47a93fb, type: 3}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Monster;
 using Stage;
 using TMPro;
@@ -12,10 +13,10 @@ public class GameManager : MonoBehaviour
     private int _stageNum;
     public StageBase Stage { get; private set; }
     public MonsterBase Monster { get; private set; }
-    
-    public GameObject stage1;
-    public GameObject monster1;
 
+    public List<GameObject> stages = new();
+    public List<GameObject> monsters = new();
+    
     private TextMeshProUGUI _creditText;
 
     private int _credit = 0;
@@ -79,14 +80,9 @@ public class GameManager : MonoBehaviour
         
         Instance.IsPlaying = false;
         
-        switch (Instance._stageNum)
-        {
-            case 1:
-                Instance.Stage = Instantiate(stage1).GetComponent<StageBase>();
-                Instance.Monster = Instantiate(monster1, new Vector3(0, 0, -1), Quaternion.identity).GetComponent<MonsterBase>();
-                Instance.Monster.gameObject.SetActive(false);
-                break;
-        }
+        Instance.Stage = Instantiate(stages[Instance._stageNum - 1]).GetComponent<StageBase>();
+        Instance.Monster = Instantiate(monsters[Instance._stageNum - 1], new Vector3(0, 0, -1), Quaternion.identity).GetComponent<MonsterBase>();
+        Instance.Monster.gameObject.SetActive(false);
     }
 
     public void StartStage()
