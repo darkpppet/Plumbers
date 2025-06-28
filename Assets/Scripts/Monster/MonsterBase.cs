@@ -89,6 +89,7 @@ namespace Monster
 
         private void Move(float deltaTime)
         {
+            _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
             transform.position += (Vector3)_targetDirection * (Speed * deltaTime);
 
             if (Vector2.Distance(transform.position, _targetPosition) <= GameManager.Instance.Stage.Length / 2.0f)
@@ -101,12 +102,11 @@ namespace Monster
                 if (_targetIndex < Path.Count)
                 {
                     _targetPosition = GameManager.Instance.Stage.Map[Path[_targetIndex].X, Path[_targetIndex].Y].transform.position;
-                    _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
+                    
                 }
                 else if (_targetIndex == Path.Count)
                 {
                     _targetPosition = GameManager.Instance.Stage.EndObject.transform.position;
-                    _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
                 }
                 else
                 {
