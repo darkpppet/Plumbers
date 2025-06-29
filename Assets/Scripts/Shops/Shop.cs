@@ -57,7 +57,7 @@ public class Shop : MonoBehaviour
                             GameManager.Instance.Stage.towers.Add(installed);
                             _isCatching = false;
                             _wireFrame.gameObject.SetActive(false);
-                            AudioManager.Instance.PlaySFX(0, 0.5f);
+                            AudioManager.Instance.PlaySFX(0, 0.3f);
                         }
                     }
                 }
