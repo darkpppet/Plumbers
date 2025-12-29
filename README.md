@@ -1,6 +1,6 @@
 # Plumbers
 
-[[다운 링크]](https://github.com/darkpppet/Plumbers/releases/tag/Relesase) &nbsp; [[Web 플레이 링크]](https://darkpppet.github.io/Plumbers/)
+[[다운 링크]](https://github.com/darkpppet/Plumbers/releases/tag/Release) &nbsp; [[Web 플레이 링크]](https://darkpppet.github.io/Plumbers/)
 
 2025 CIEN 게임잼에서 제작한 게임입니다.
 
