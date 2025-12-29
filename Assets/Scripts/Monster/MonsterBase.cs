@@ -44,15 +44,17 @@ namespace Monster
         // Update is called once per frame
         private void Update()
         {
-            if (gameObject.activeInHierarchy)
-            {
-                Move(Time.deltaTime);
+            if (!gameObject.activeInHierarchy)
+                return;
+            
+            Move(Time.deltaTime);
 
-                if (Position.Column >= 0)
-                {
-                    DealDamage(GameManager.Instance.Stage.Map[Position.Row, Position.Column].TileDamage * Time.deltaTime);
-                }
-            }
+            if (Position.Column < 0)
+                DealDamage(GameManager.Instance.Stage.Map[Position.Row, Position.Column + 1].TileDamage * Time.deltaTime);
+            else if (Position.Column >= GameManager.Instance.Stage.MapSize.Column)
+                DealDamage(GameManager.Instance.Stage.Map[Position.Row, Position.Column - 1].TileDamage * Time.deltaTime);
+            else
+                DealDamage(GameManager.Instance.Stage.Map[Position.Row, Position.Column].TileDamage * Time.deltaTime);
         }
 
         public void DealDamage(float damage)
@@ -89,6 +91,7 @@ namespace Monster
 
         private void Move(float deltaTime)
         {
+            var beforePos = transform.position;
             _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
             transform.position += (Vector3)_targetDirection * (Speed * deltaTime);
 
@@ -96,23 +99,33 @@ namespace Monster
             {
                 Position = _targetIndex < Path.Count ? Path[_targetIndex] : (GameManager.Instance.Stage.EndRow, GameManager.Instance.Stage.MapSize.Column);
             }
-            if (Vector2.Distance(transform.position, _targetPosition) <= 0.002f)
+            
+            var direction1 = _targetPosition - (Vector2)beforePos;
+            var direction2 = _targetPosition - (Vector2)transform.position;
+
+            if (Vector2.Dot(direction1, direction2) > 0)
+                return;
+            
+            _targetIndex++;
+            if (_targetIndex < Path.Count)
             {
-                _targetIndex++;
-                if (_targetIndex < Path.Count)
-                {
-                    _targetPosition = GameManager.Instance.Stage.Map[Path[_targetIndex].X, Path[_targetIndex].Y].transform.position;
-                    
-                }
-                else if (_targetIndex == Path.Count)
-                {
-                    _targetPosition = GameManager.Instance.Stage.EndObject.transform.position;
-                }
-                else
-                {
-                    SetGoal();
-                }
+                var remainDistance = Vector2.Distance(transform.position, _targetPosition);
+                transform.position = (Vector3)_targetPosition + new Vector3(0, 0, transform.position.z);
+                
+                _targetPosition = GameManager.Instance.Stage.Map[Path[_targetIndex].X, Path[_targetIndex].Y].transform.position;
+                _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
+                transform.position += (Vector3)_targetDirection * remainDistance;
+
+                return;
             }
+            
+            if (_targetIndex == Path.Count)
+            {
+                _targetPosition = GameManager.Instance.Stage.EndObject.transform.position;
+                return;
+            }
+                
+            SetGoal();
         }
 
         public void Activate()
